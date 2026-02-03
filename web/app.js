@@ -3,14 +3,14 @@ let marketTable;
 
 $(document).ready(function () {
 
-  // ===============================
+  
   // Inicializar Materialize
-  // ===============================
+  
   $('select').formSelect();
 
-  // ===============================
+
   // DATA TABLE: STOCKS
-  // ===============================
+  
   stocksTable = $('#stocksTable').DataTable({
     ajax: {
       url: 'http://localhost:8080/api/stocks',
@@ -34,9 +34,9 @@ $(document).ready(function () {
     fetchStock(symbol);
   });
 
-  // ===============================
+  
   // DATA TABLE: MARKET STATUS
-  // ===============================
+  
   marketTable = $('#marketStatusTable').DataTable({
   ajax: {
     url: 'http://localhost:8080/api/market-status',
@@ -79,17 +79,16 @@ $(document).ready(function () {
 });
 
 
-  // ===============================
+  
   // Auto-refresh Market Status
-  // ===============================
+  
   setInterval(() => {
     marketTable.ajax.reload(null, false);
   }, 60000); // cada 1 minuto
 });
 
-// ===============================
+
 // Función: Fetch Stock desde API
-// ===============================
 function fetchStock(symbol) {
 
   if (!symbol) {

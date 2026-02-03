@@ -1,5 +1,7 @@
 package database
 
+//connect to MySQL database using database/sql package
+
 import (
 	"database/sql"
 	"log"

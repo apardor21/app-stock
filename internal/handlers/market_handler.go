@@ -1,5 +1,6 @@
 package handlers
 
+// market status from api external (reto personal)
 import (
 	"encoding/json"
 	"io"
@@ -44,7 +45,7 @@ func GetMarketStatus(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 🔒 Rate limit or text response
+	//  si la respuesta contiene rate limit o premium, devolvemos error 429
 	if strings.Contains(string(body), "rate limit") ||
 		strings.Contains(string(body), "premium") {
 
@@ -58,13 +59,13 @@ func GetMarketStatus(w http.ResponseWriter, r *http.Request) {
 	var response MarketStatusResponse
 	if err := json.Unmarshal(body, &response); err != nil {
 
-		// 👇 RESPUESTA SEGURA SI ALPHA MANDA BASURA
+		// RESPUESTA SEGURA SI ALPHA MANDA BASURA
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode([]Market{})
 		return
 	}
 
-	// 👇 SI markets ES NIL, DEVOLVEMOS ARRAY VACÍO
+	//  SI markets ES NIL, DEVOLVEMOS ARRAY VACÍO
 	if response.Markets == nil {
 		response.Markets = []Market{}
 	}

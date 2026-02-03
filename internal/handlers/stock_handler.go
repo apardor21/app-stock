@@ -1,5 +1,6 @@
 package handlers
 
+// handler para obtener todos los stocks y para fetch + save stock
 import (
 	"encoding/json"
 	"net/http"
@@ -41,7 +42,7 @@ func FetchAndSaveStock(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// lógica de fetch + insert...
+	// lógica de fetch + insert
 
 	json.NewEncoder(w).Encode(map[string]string{
 		"message": "Stock actualizado correctamente",

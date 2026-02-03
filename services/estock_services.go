@@ -1,5 +1,6 @@
 package services
 
+//servicios para fetch y save stock desde AlphaVantage
 import (
 	"encoding/json"
 	"errors"
@@ -15,7 +16,7 @@ type AlphaVantageResponse struct {
 
 func FetchAndSaveStock(symbol string) error {
 
-	url := "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=W2ITEFIS1SAR401P"
+	url := "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=demo" // se debe usar una API key real
 
 	resp, err := http.Get(url)
 	if err != nil {

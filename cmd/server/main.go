@@ -10,10 +10,10 @@ import (
 
 func main() {
 
-	// 1️⃣ DB
+	//  DB
 	database.Connect()
 
-	// 2️⃣ Rutas
+	//  Rutas
 	http.HandleFunc("/api/stocks", handlers.GetStocks)
 	http.HandleFunc("/api/stocks/fetch", handlers.FetchAndSaveStock)
 	http.HandleFunc("/api/market-status", handlers.GetMarketStatus)
