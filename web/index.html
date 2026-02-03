@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Dashboard</title>
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h4 class="center-align">📈 Stock Market Dashboard</h4>
+
+    <!-- Botón para actualizar -->
+    <div class="center-align" style="margin-bottom:20px;">
+      <a id="btnFetch" class="btn waves-effect waves-light">
+        Actualizar datos
+      </a>
+    </div>
+
+    <div class="row">
+  <div class="input-field col s12 m6">
+    <select id="symbolSelect">
+      <option value="IBM" selected>IBM</option>
+      <option value="AAPL">AAPL</option>
+      <option value="TSLA">TSLA</option>
+      <option value="GOOGL">GOOGL</option>
+    </select>
+    <label>Select Stock</label>
+  </div>
+
+  <div class="col s12 m6" style="margin-top:25px;">
+    <a id="btnFetch" class="btn waves-effect waves-light">
+      Fetch Stock
+    </a>
+  </div>
+</div>
+
+
+    <!-- Tabla -->
+    <table id="stocksTable" class="striped highlight">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>Change %</th>
+          <th>Volume</th>
+          <th>Source</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <h5 class="center-align">📊 Market Status (Open / Closed)</h5>
+
+<h5 class="center-align">📊 Market Status</h5>
+
+<table id="marketStatusTable" class="striped highlight">
+  <thead>
+    <tr>
+      <th>Market Type</th>
+      <th>Region</th>
+      <th>Exchanges</th>
+      <th>Status</th>
+      <th>Open</th>
+      <th>Close</th>
+    </tr>
+  </thead>
+</table>
+
+
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
